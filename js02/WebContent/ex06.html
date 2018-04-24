@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+	
+	function func04(){
+		//var su = {'key1':a,'key2':b};
+		var msg='인자로전달된 함수';
+		var temp=function(){
+					alert(this.key1);
+				};
+		var obj={'key1':msg, 'key2':temp};
+		return obj;
+		//return su;
+	}
+	func04().key2();
+	
+	//var temp=func04(1,2);
+	//console.log(temp);
+	/* 
+	function func03(){
+		console.log('func03 run...');
+		var sum='';
+		if(typeof arguments[0]=='number')sum=0;
+		for(var i=0; i<arguments.length; i++){
+			sum+=arguments[i];
+		}
+		return sum;
+	}
+	
+	var su=func03(1,2,3);
+	alert(su);
+
+	function func02(){
+		
+		console.log(arguments.length);
+	}
+	
+	func02(100,200,300,400);
+
+	var obj = new Object();
+	obj={'key1':'abcd'
+			,'key2':1234
+			,'key3': function(){
+						
+						console.log(window.obj.key2);
+					}
+			};
+	obj.key3();
+	 */
+	/* 
+	window.a=100; // 전역
+	function func01 (){
+		//a=4321; //전역
+		//var a=1234;	// 지역
+		//console.log('func01 run:'+a);
+		console.log(window===this);
+	}
+	func01();
+	alert(a);
+	 */
+	//var func02=function (){console.log('func02 run');};
+	//(function (){console.log('func02 run');})();
+</script>
+</head>
+<body>
+
+</body>
+</html>

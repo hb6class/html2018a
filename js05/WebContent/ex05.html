@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	div{
+		width: 300px;
+		height: 300px;
+		background-color: yellow;
+	}
+</style>
+<script type="text/javascript">
+var input,div,select,btn,chkboxs;
+function func01(){
+	//console.log('이벤트 발생');
+	if(input.value=='')return;
+	var msg=input.value;
+	div.innerHTML+=msg+'<br/>';
+	input.value="";
+}
+window.onload=function (){
+	input=document.querySelector('input[type="text"]');
+	//input.focus();
+	btn=document.querySelector('button');
+	div=document.querySelector('div');
+	select=document.querySelector('select');
+	chkboxs=document.querySelectorAll('input[type="checkbox"]');
+	btn.onclick=func01;
+	input.onchange=function (){btn.onclick();};
+	select.onchange=function (e){
+		//console.log(this.selectedOptions[0].value);
+		console.log(e.target.selectedOptions[0].value);
+	};
+	for(var i=0; i<chkboxs.length; i++){
+		chkboxs[i].onchange=function(){
+			//console.log(this.value+':라디오 체크'+this.checked);
+			if(this.checked){
+				div.innerHTML+="라디오박스["+i+"]="+this.value+"<br/>";
+			}
+		};
+	}
+	
+								// onchange=객체 고유의 속성변화
+	//select.onfocus=func01; // 포커스인 -onfocus <=> onblur 포커스아웃
+};
+
+</script>
+</head>
+<body>
+	<input type="text" /><button>입력</button>
+	<br/>
+	<select>
+		<option value="sel1">item1</option>
+		<option value="sel2">item2</option>
+		<option value="sel3">item3</option>
+	</select>
+	<br/>
+	<input type="checkbox" value="ch1" />item1
+	<input type="checkbox" value="ch2" />item2
+	<input type="checkbox" value="ch3" />item3
+	<div>
+	</div>
+</body>
+</html>

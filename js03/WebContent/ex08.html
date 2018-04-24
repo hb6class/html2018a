@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	// location 객체
+	function go(a){		
+		// 절대, 상대
+		//window.location.replace(a+".html");
+		location.href=a+".html";
+	}
+	function re(){
+		window.location.reload();		
+	}
+	console.log(location.href);
+	console.log(location.protocol);
+	console.log(location.host);
+	console.log(location.hostname);
+	console.log(location.port);
+	console.log(location.pathname);
+	console.log(location.search);
+</script>
+</head>
+<body>
+	<button onclick="go('ex09');">ex09</button>
+	<button onclick="go('ex02');">ex02</button>
+	<button onclick="go('ex03');">ex03</button>
+	<input type="text">
+	<button onclick="re();">reload</button>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	// v8 - 단일스레드
+	// 내장함수
+	//alert('메시지창을 띄운다');
+	//var su=prompt("1~10까지 숫자중 아무거나 입력하세요",'입력하세요');
+	//var result = confirm("이동하시겠습니까?");
+	//console.log(result);
+	var time;
+	function func(){
+			console.log('ok...'+cnt);
+			cnt++;
+			if(cnt<=10)time=setTimeout(func,1000);
+	}
+	var cnt=0;
+	func(); 
+	function stop(){
+		//clearInterval(mod);
+		clearTimeout(time);
+	}
+	/* 
+	var cnt=0;
+	function func02(){
+		console.log(new Date());
+	}
+	var mod = setInterval(func02,1000);
+	*/
+</script>
+</head>
+<body>
+	<button onclick="stop();">stop</button>
+</body>
+</html>
+
+

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+/* 
+*	1. Number
+*	2. String
+*	3. Boolean
+*	4. Array
+*	5. Object
+*	6. Function
+*	7. Null
+*	8. Undefined 
+*	9. Date
+*/
+
+	// 클로져
+	function func3(){
+		var su=111;
+		var temp=function(a){
+			this.data=a;
+		};
+		var temp2=function(){
+			return this.data;
+		}
+		return {'data':su,'setter':temp,'getter':temp2};
+	}
+	var msg=func3();
+	msg.setter(3333);
+	console.log(msg.getter());
+	
+	/*
+	var su=100;
+	function func1(a){
+		var su=1234;
+		//su=200;
+		//console.log(arguments[0]);
+		//console.log(arguments[1]);
+		for(var msg in a){
+			console.log(a[msg]);
+		}
+		console.log('func1 run:'+su);
+		return ;
+	}
+	// 콜백함수
+	var func2= function(){
+		console.log('func2 run');
+		return ;
+	};
+//	func1(func2);
+	func1({'key1':1111, 'key2':'abcd'});
+	console.log(su);
+
+	// <xml>
+	// JSON - 제약
+	var msg='test';
+	var obj1={'key1':'value1','key2':'value2'};	//java.util.Map(순서x,동적자료구조)
+	var obj2=new Object();
+	obj2[msg]='value1';
+	obj2['key2']='value2';
+	var obj3=new Object();
+	obj3.msg='val1';
+	obj3.key2='val2';
+	
+	console.log(obj2.msg);
+	console.log(obj3.key2);
+	//console.log(obj2[msg]);
+	//console.log(obj2['key2']);
+
+	//var a= new Number(1234);
+	//a= parseInt("2000원");
+	//var c= "java";
+	//var d= "javaScript".substring(0, 4);
+	//var e= false;
+	//var g= new Boolean(false);
+	
+	var h=new Array(222,333,111,444);
+	var m=new Array();// java.util.List(순서o,동적자료구조)
+	m.push('aaaa');
+	m.push('hhhh');
+	m.push('zzzz');
+	m.push('bbbb');
+	m.push('cccc');
+	
+	//m.reverse();
+	
+	var func=function (a,b){
+		return a.charCodeAt(0)-b.charCodeAt(0);
+	};
+	
+	// 콜백함수
+	m.sort(func);
+	for(var i=0; i<m.length; i++){
+	//for(var i in m){// 큐
+		console.log(m[i]);
+	}
+	while(m.length){//스택
+		console.log(m.pop());
+	} 
+	*/
+</script>
+</head>
+<body>
+	
+</body>
+</html>
