@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var input, btn;
+	
+	function func01(){
+		console.log('이벤트1수행');
+	}
+	function func11(){
+		console.log('이벤트11수행');
+	}
+	function func02(){
+		alert('이벤트2수행');
+		//input.removeEventListener('keyup',func01);
+		input.onfocus=null;
+	}
+	
+	function myOpen (){
+		// 객체.addEventListener('이벤트명',callback);
+		input=document.querySelector('input[type="text"]');
+		btn=document.querySelector('button');
+		btn.addEventListener('click',func02);
+		//input.addEventListener('keyup',func01);
+		input.addEventListener('keyup',func01);
+		input.onfocus=func11;
+		
+	};
+	
+	window.addEventListener('load',myOpen);
+</script>
+</head>
+<body>
+	<h1>이벤트바인딩</h1>
+	<p>내용</p>
+	<input type="text" />
+	<button>버튼</button>
+</body>
+</html>
