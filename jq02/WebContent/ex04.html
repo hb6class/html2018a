@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+	window.onload=function(){
+		/* 
+		$('select').html($('select').html()+"<option>item1</option>");
+		$('select').html($('select').html()+"<option>item2</option>");
+		$('select').html($('select').html()+"<option>item3</option>");
+		$('select').html($('select').html()+"<option>item4</option>");
+		$('select').html($('select').html()+"<option>item5</option>");
+		////////////
+		var arr=[];
+		arr.push($('<option>edit1</option>'));
+		$('select').html(arr);
+		arr.push($('<option>edit2</option>'));
+		$('select').html(arr);
+		arr.push($('<option>edit3</option>'));
+		$('select').html(arr);
+		arr.push($('<option>edit4</option>'));
+		$('select').html(arr);
+		*/
+		/*  
+		var item3=$('<li>item3</li>');
+		$('ul').append(item3);
+		var item4=$('<li>item4</li>');
+		$('ul').append(item4);
+		$('ul').append('<li>item5</li>');
+		$('ul').append('p');
+		$('ul').append($('p'));
+		//$('p').append('<p>추가되는 문자열</p>');
+		$('<option>item1</option>').appendTo('select'); 
+		$('<li>item3</li>').appendTo('ul'); 
+		 */
+		$('li').addClass('cl1');
+		$('.cl1').before("<li>before</li>");
+		$('.cl1').after("<li>after</li>");
+		$('ul').prepend('<li>prepend</li>');
+		$('<li>prependTo</li>').prependTo('ul');
+		$('ul').append('<li>append</li>');
+		$('<li>appendTo</li>').appendTo('ul');
+		$('.cl1').after(function(idx,msg){
+			console.log(idx,msg);
+		});
+		$('<li>insertBefore</li>').insertBefore(".cl1");
+		$('<li>insertAfter</li>').insertAfter(".cl1");
+		//$('ul').empty();
+	};
+
+</script>
+</head>
+<body>
+	<h1>노드 추가제어</h1>
+	<p>노드의 추가제거</p>
+	<ul>
+		<li>item1</li>
+		<li>item2</li>
+	</ul>
+	<form>
+		<select></select>
+	</form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

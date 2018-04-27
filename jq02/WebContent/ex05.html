@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	body>div{
+		width: 300px;
+		height: 300px;
+		background-color: yellow;
+	}
+	div>div{
+		width: 200px;
+		height: 100px;
+		background-color: green;
+	}
+
+</style>
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+/* 
+	blur, focus, load, resize, scroll, 
+	unload, beforeunload, click, dblclick, 
+	mousedown, mouseup, mousemove, mouseover, 
+	mouseout, mouseenter, mouseleave, 
+	change, select, submit, keydown, keypress, keyup
+
+*/
+	function start(){
+		console.log('시작');
+	};
+	$(window).load(function(){
+		//console.log('로딩완료2');		
+	});
+	$(document).ready(function(){
+		//console.log("문서 구조 완성시점");
+	});
+	$(function myOpen(){
+		console.log('로딩완료');
+		$('a').click(function(e){
+			// a.onclick=function(){return false;};
+			alert( e.isDefaultPrevented() );
+			e.preventDefault();
+			alert( e.isDefaultPrevented() );
+			return false;
+		});
+		/* 
+		$('div>div').dblclick(function(){
+			alert("더블클릭");
+		}); 
+		$('div>div').mouseup(function(){
+			console.log("mouseup");
+		});
+		$('div>div').click(function(){
+			console.log("click");
+		});
+		$('div>div').mousedown(function(){
+			console.log("mousedown");
+		});
+		*/
+		$('div').click(function(){
+			console.log('클릭');
+		});
+		/* 
+		$('div>div').mouseover(function(){
+			console.log("mouseover");
+		});
+		$('div>div').mouseout(function(){
+			console.log("mouseout");
+		});
+		$('div>div').mouseenter(function(){
+			console.log("mouseenter");
+		});
+		$('div>div').mouseleave(function(){
+			console.log("mouseleave");
+		});
+		 */
+		//$('div>div').load('ex04.html');//통신
+		/* 
+		$('input').keydown(function(e){
+			console.log(e.key+':keydown');
+			console.log($(this).val());
+		});
+		$('input').keypress(function(e){
+			console.log(e.key+':keypress');
+			console.log($(this).val());
+		});
+		$('input').keyup(function(e){
+			console.log(e.key+':keyup');
+			console.log($(this).val());
+		});
+		 */
+		$('input, a, select').blur(function(){
+			console.log('change');
+			console.log($(this).val());
+		});
+		$(window).scroll(function(){
+			console.log("scroll");
+		});
+		
+		 
+	});
+	//start();
+</script>
+</head>
+<body>
+	<h1>jq이벤트</h1>
+	<input type="text"/>
+	<select>
+		<option>item1</option>
+		<option>item2</option>
+		<option>item3</option>
+	</select>
+	<button>버튼</button>
+	<a href="ex04.html">link</a>
+	<div>
+		<div><a href="#">■</a></div>
+	</div>
+	
+</body>
+</html>
