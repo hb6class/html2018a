@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	#bigImg{
+		width: 320px;
+		height: 320px;
+		overflow: hidden;
+	}
+	#bigImg>ul{
+		padding: 0px;
+		width: 1920px;
+	}
+	#bigImg>ul>li{
+		width:320px;
+		float: left;
+		list-style: none;
+	}
+	#bigImg>ul>li>img{}
+	#thumbnail{
+		width: 408px;
+		overflow: hidden;
+	}
+	#thumbnail>ul{
+		width: 816px;
+		padding: 0px;
+	}
+	#thumbnail>ul>li{
+		width:136px;
+		float:left;
+		list-style: none;
+	}
+	#thumbnail>ul>li>img{
+	}
+</style>
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+	var thumbW, cnt;
+	$(function(){
+		cnt=0;
+		thumbW=$('#thumbnail>ul').width();
+		setup(2);
+		$('#thumbnail>a').each(function(idx,ele){			
+			$(ele).click(function(e){
+				e.preventDefault();
+				setup(cnt+2);
+				if(idx==1){
+					console.log('cnt:'+cnt);
+					if(cnt<3){
+						cnt++;
+						$('#thumbnail>ul')
+							.animate({'margin-left':'-'+(136*cnt)+'px'},3000);
+					}			
+				} //if end;
+			});//click end;
+		});//each end;
+		$('#thumbnail>ul>li>a').each(function(idx,ele){
+			$(ele).click(function(e){
+				e.preventDefault();
+				big(idx);
+				if($(this).children().attr('alt'))$('#thumbnail>a').eq(1).click();
+			});
+		});
+		
+	});//ready end
+	function big(su){
+		$('#bigImg>ul').animate({'margin-left':'-'+(320*su)+'px'},3000);
+	};
+	function setup(su){
+		$('#thumbnail>ul>li>a>img').each(function(idx,ele){
+			console.log('alt 처리');
+			if(su)$(ele).attr('alt',''+idx);
+			else $(ele).removeAttr('alt');
+		});
+	}
+</script>
+</head>
+<body>
+	<div>
+		<div id="bigImg">
+			<ul>
+				<li><img alt="big01" src="imgs/big/big01.jpg"/></li>
+				<li><img alt="big02" src="imgs/big/big02.jpg"/></li>
+				<li><img alt="big03" src="imgs/big/big03.jpg"/></li>
+				<li><img alt="big04" src="imgs/big/big04.jpg"/></li>
+				<li><img alt="big05" src="imgs/big/big05.jpg"/></li>
+				<li><img alt="big06" src="imgs/big/big06.jpg"/></li>
+			</ul>
+			<a href="#">prev</a>
+			<a href="#">next</a>
+		</div>
+		<div id="thumbnail">
+			<ul>
+				<li><a href="#"><img alt="img01" src="imgs/small/img01.jpg"/></a></li>
+				<li><a href="#"><img alt="img02" src="imgs/small/img02.jpg"/></a></li>
+				<li><a href="#"><img alt="img03" src="imgs/small/img03.jpg"/></a></li>
+				<li><a href="#"><img alt="img04" src="imgs/small/img04.jpg"/></a></li>
+				<li><a href="#"><img alt="img05" src="imgs/small/img05.jpg"/></a></li>
+				<li><a href="#"><img alt="img06" src="imgs/small/img06.jpg"/></a></li>
+			</ul>
+			<a href="#">prev</a>
+			<a href="#">next</a>
+		</div>
+	</div>
+</body>
+</html>

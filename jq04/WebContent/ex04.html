@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="css/jquery.bxslider.min.css" />
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="js/jquery.bxslider.min.js"></script>
+<script type="text/javascript">
+var obj1,obj2;
+	$(document).ready(function(){
+	    obj1=$('.slider').eq(0).bxSlider({
+	    	minSlides:1,
+	    	maxSlides:1,
+	    	slideWidth:320,
+	    	pager:false,
+	    	controls:false
+	    });
+	    obj2=$('.slider').eq(1).bxSlider({
+	    	mode:'horizontal',//'horizontal', 'vertical', 'fade'
+	    	speed:1000,// 애니메이션의 속도
+	    	//randomStart:true,
+	    	//infiniteLoop:false,
+	    	auto: true,
+	    	//captions:true,
+	    	minSlides:1,
+	    	maxSlides:3,
+	    	slideWidth:130,//320,
+	    	moveSlides:1,
+	    	//pause:1000,
+	    	controls:true,
+	    	//nextText:'다음',
+	    	//prevText:'이전',	    	
+	    	//prevSelector:$('a').eq(0),
+	    	//nextSelector:$('a').eq(1),
+	    	//autoControls:true
+	    	//pager:true,
+	    	//pagerType:'full',
+	    	//pagerCustom:$('.my-pager')
+	    	onSliderLoad:function(idx){
+	    						console.log('onSliderLoad'+idx);
+	    					},
+	    	onSlideBefore:function(ele,old,idx){
+	    						console.log('onSlideBefore',old,idx,ele.children().attr('src'));
+	    					},
+	    	onSlideAfter:function(ele,old,idx){
+	    						console.log('onSlideAfter',old,idx,ele.children().attr('src'));
+	    					},
+	    	onSliderResize:function(idx){
+	    						console.log('onSliderResize');
+	    					},
+	    	onSlideNext:function(ele,old,idx){
+	    						console.log('onSlideNext',old,idx,ele.children().attr('src'));
+	    						obj1.goToSlide(idx);
+	    					},
+	    	onSlidePrev:function(ele,old,idx){
+	    						console.log('onSlidePrev',old,idx,ele.children().attr('src'));
+	    					}
+	    	});
+	  });
+</script>
+</head>
+<body>
+	<div class="slider">
+	   <div><img title="thumbnail01" src="imgs/big/big01.jpg"/></div>
+	   <div><img title="thumbnail02" src="imgs/big/big02.jpg"/></div>
+	   <div><img title="thumbnail03" src="imgs/big/big03.jpg"/></div>
+	   <div><img title="thumbnail04" src="imgs/big/big04.jpg"/></div>
+	   <div><img title="thumbnail05" src="imgs/big/big05.jpg"/></div>
+	   <div><img title="thumbnail06" src="imgs/big/big06.jpg"/></div>
+	 </div>
+	 <div class="slider">
+	 	<div><img alt="img01" src="imgs/small/img01.jpg"/></div>
+	 	<div><img alt="img02" src="imgs/small/img02.jpg"/></div>
+	 	<div><img alt="img03" src="imgs/small/img03.jpg"/></div>
+	 	<div><img alt="img04" src="imgs/small/img04.jpg"/></div>
+	 	<div><img alt="img05" src="imgs/small/img05.jpg"/></div>
+	 	<div><img alt="img06" src="imgs/small/img06.jpg"/></div>
+	 </div>
+	 <a href="#"></a>
+	 <a href="#"></a>
+	
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
